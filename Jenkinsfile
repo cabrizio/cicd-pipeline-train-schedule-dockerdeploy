@@ -13,11 +13,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-                script {
-                    app = docker.build("cfabrizio/train-schedule")
-                    app.inside {
-                        sh 'echo $(curl localhost:8080)'
-                    }
+                sh 'sudo docker build -t cfabrizio/train-schedule'
                 }
             }
         }
